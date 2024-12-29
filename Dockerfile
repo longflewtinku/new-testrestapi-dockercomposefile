@@ -13,12 +13,13 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the FastAPI application code into the container
 COPY . .
 
+# Set environment variables for database connection
 ENV DB_HOST=inventory-db
 ENV DB_NAME=inventorydb
 ENV DB_USER=qtdevops
 ENV DB_PASSWORD=qtdevops
 
-# Expose port 80 for the application
+# Expose port 800 for the application (note: this should match the port used in CMD)
 EXPOSE 8000
 
 # Command to run the FastAPI application using Uvicorn
