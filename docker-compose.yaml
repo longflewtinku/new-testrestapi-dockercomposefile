@@ -1,0 +1,33 @@
+services:
+  inventory-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - DB_HOST=db
+    depends_on:
+      - db
+    networks:
+      - inventory_net
+
+  db:
+    image: mysql:5.7 # Correcting version; MySQL 9.1 does not exist
+    restart: always
+    container_name: inventory-db
+    environment:
+      MYSQL_ROOT_PASSWORD: rootroot
+      MYSQL_DATABASE: inventorydb
+      MYSQL_USER: qtdevops
+      MYSQL_PASSWORD: qtdevops
+    volumes:
+      - inventory_data:/var/lib/mysql
+    networks:
+      - inventory_net
+
+volumes:
+  inventory_data:
+
+networks:
+  inventory_net:

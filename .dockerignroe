@@ -1,0 +1,22 @@
+# Ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+# Ignore database files
+*.db
+*.sqlite3
+# Ignore virtual environment directories
+venv/
+env/
+.venv/
+# Ignore local development files
+*.env
+*.DS_Store
+*.log
+# Ignore version control
+.git/
+.gitignore
+# Ignore documentation and other non-essential files
+README.md
+docker-compose.yml
